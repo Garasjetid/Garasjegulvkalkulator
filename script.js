@@ -5,52 +5,23 @@
 \paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 <style>\
-    body \{\
-      font-family: Arial, sans-serif;\
-      max-width: 400px;\
-      margin: 50px auto;\
-      padding: 20px;\
-      background-color: #f4f4f4;\
-      border-radius: 10px;\
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\
-    \}\
-    h1 \{\
-      font-size: 24px;\
-      text-align: center;\
-    \}\
-    label \{\
-      font-weight: bold;\
-      margin-top: 10px;\
-      display: block;\
-    \}\
-    input \{\
-      width: 100%;\
-      padding: 10px;\
-      margin-top: 5px;\
-      border: 1px solid #ccc;\
-      border-radius: 5px;\
-      box-sizing: border-box;\
-    \}\
-    button \{\
-      width: 100%;\
-      padding: 10px;\
-      background-color: #e7ac3b;\
-      color: white;\
-      border: none;\
-      border-radius: 5px;\
-      cursor: pointer;\
-      margin-top: 15px;\
-      font-size: 18px;\
-    \}\
-    button:hover \{\
-      background-color: #0056b3;\
-    \}\
-    #result \{\
-      font-size: 20px;\
-      font-weight: bold;\
-      text-align: center;\
-      margin-top: 15px;\
-    \}\
-  </style>\
-}
+\f0\fs24 \cf0 <script>\
+function calculateTiles() \{\
+  const width = document.getElementById('width').value;\
+  const depth = document.getElementById('depth').value;\
+  \
+  if (width <= 0 || depth <= 0) \{\
+    document.getElementById('result').textContent = 'Vennligst oppgi gyldige m\'e5l.';\
+    return;\
+  \}\
+  \
+  const tileSize = 30;  // Flisens st\'f8rrelse i cm\
+  const widthTiles = Math.ceil((width * 100) / tileSize);\
+  const depthTiles = Math.ceil((depth * 100) / tileSize);\
+  const totalTiles = widthTiles * depthTiles;\
+\
+  document.getElementById('result').textContent = `Antall fliser: $\{totalTiles\}`;\
+\}\
+\
+document.getElementById('calculateButton').addEventListener('click', calculateTiles);\
+</script>}
